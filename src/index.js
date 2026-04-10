@@ -1,19 +1,20 @@
 'use strict';
 
-const spheres = 12;
-const thickness = 0.01; // м
+const SPHERES = 12;
+const THINKNESS = 0.01; 
 const PI = 3.14;
-let outerRadius = 0.25; // м
 
+let outerDiametr = 0.5; 
 let totalVolume = 0;
 
-for (let i = 0; i < spheres; i++) {
-    let innerRadius = outerRadius - thickness;
+for (let i = 0; i < SPHERES; i++) {
 
-    let volume = (4 / 3) * PI * innerRadius**3;
+    let innerDiametr = outerDiametr - 2 * THINKNESS;
+
+    let volume = (PI * innerDiametr ** 3) / 6;
     totalVolume += volume;
 
-    outerRadius += thickness * 2;
+    outerDiametr += THINKNESS * 2;
 }
 
-console.log("Сумарний внутрішній об'єм:", totalVolume, "м³");
+console.log("Сумарний внутрішній об'єм:", totalVolume.toFixed(5), "м³");
